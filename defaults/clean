@@ -1,0 +1,17 @@
+#! /bin/bash
+scp daemons.orig root@leaf1:/etc/quagga
+scp daemons.orig root@leaf2:/etc/quagga
+scp daemons.orig root@spine1:/etc/quagga
+scp daemons.orig root@spine2:/etc/quagga
+scp interfaces.orig root@leaf1:/etc/network/interfaces
+scp interfaces.orig root@leaf2:/etc/network/interfaces
+scp interfaces.orig root@spine1:/etc/network/interfaces
+scp interfaces.orig root@spine2:/etc/network/interfaces
+ssh root@leaf1 rm /etc/quagga/Quagga.conf
+ssh root@leaf1 sudo reboot 
+ssh root@leaf2 rm /etc/quagga/Quagga.conf
+ssh root@leaf2 sudo reboot
+ssh root@spine1 rm /etc/quagga/Quagga.conf
+ssh root@spine1 sudo reboot
+ssh root@spine2 rm /etc/quagga/Quagga.conf
+ssh root@spine2 sudo reboot
